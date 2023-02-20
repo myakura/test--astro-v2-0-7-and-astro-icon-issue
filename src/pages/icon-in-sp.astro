@@ -1,0 +1,35 @@
+---
+import { Sprite, Icon } from "astro-icon";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro v2.0.7+ + astro-icon issue</title>
+  </head>
+  <body>
+    <h1>An `Icon` inside `Sprite.Provider`</h1>
+
+    <Sprite.Provider>
+      <Icon name="astro" />
+    </Sprite.Provider>
+
+    <p class="message"><strong>`link` is injected in `body`.</strong></p>
+  </body>
+</html>
+
+<style>
+  body {
+    padding: 1em;
+  }
+
+  .message {
+    display: none;
+    color: red;
+  }
+
+  body:has(link[rel="stylesheet"]) .message {
+    display: block;
+  }
+</style>

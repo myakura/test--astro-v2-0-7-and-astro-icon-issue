@@ -1,0 +1,38 @@
+---
+import { Sprite, Icon } from "astro-icon";
+import SimpleComponent from "../component/SimpleComponent.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro v2.0.7+ + astro-icon issue</title>
+  </head>
+  <body>
+    <h1>A component inside `Sprite.Provider`</h1>
+
+    <Sprite.Provider>
+      <SimpleComponent>
+        <p>Hello!</p>
+      </SimpleComponent>
+    </Sprite.Provider>
+
+    <p class="message"><strong>`link` is injected in `body`.</strong></p>
+  </body>
+</html>
+
+<style>
+  body {
+    padding: 1em;
+  }
+
+  .message {
+    display: none;
+    color: red;
+  }
+
+  body:has(link[rel="stylesheet"]) .message {
+    display: block;
+  }
+</style>
